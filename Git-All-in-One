@@ -1,0 +1,152 @@
+Git & GitHub
+
+1.Difference between Git & GitHub.
+
+Git (Global Information Tracker):
+      . Bydefault Master branch is created on Git (locally).
+      . Git is version control system which allow your file to have version history.
+      . Git is Distributed Version Control System (DVCS).
+	      In DVCS every contributor has a local copy or clone of the main repository i.e - everyone maintains a local repository of their own, which contains all the files & metadata 
+        present in the main repository.
+
+GitHub :
+      . Bydefault Main branch is created on GitHub (Remote)
+      . It is not locally available, We have always needed to be connected to a network to perform any action.
+      . If the central server gets failed you will loss the entire data.
+
+Why do we need Source Code Management (SCM) as a DevOps Engineer?
+        To use CI/CD pipeline in DevOps you must have the most recent project updates on hand Because DevOps monitors the most recent code and creates definitions that execute a 
+        verity of tasks by user needs, the release definitions that assist in deploying the most recent binaries on your primary environment also use these definitions. Any end server
+        where the finished product is made ready for usage might be your client computer, the production environment or both.
+
+Git Three-stage architecture :
+
+	      Working Directory	             Staging Area		            Git Directory (Repository)
+		
+		            <----------------------------------------------------------
+				                          Checkout the project
+		             --------------------------->
+			                   Stage File
+					                                  ----------------------------------->
+						                                            Commit
+    	          <----------------------------------------------------------
+				                          Checkout the project
+
+				
+Tags :
+        Tags assign a meaningful name with a specific version in the repository. Once a tag is created for a particular save, even if you create a new commit it will not be updated.
+
+Snapshots :
+        Represent some date of a particular time.
+        It is always incremental i.e - It stores the changes (append date) only. Not the entire copy.
+
+Push :
+        Push operations copy changes from a local repository server to a remote or central repository. This is used to store the changes permanently in the git repository.
+
+Pull :
+	      Copies the changes from a remote repository to a local machine. The pull operation is used for synchronization between the repository.
+
+Branch :
+	      Files created in the workspace will be visible in any of the branch workspace until you commit, Once you commit then that file belongs to that particular branch.
+	      After done with the code, merge other branches with Master.
+	      This concept is useful for parallel development.
+	      When a new branch created, data from the existing branch is copied to the new branch.
+
+Merge :
+	      We can't merge branches of different repositories.
+	      We use the pulling mechanism to merge Branches.
+
+What is cherry picking in git :
+	      Cherry picking is the act of picking a commit from a branch and applying it to another. git cherry-pick can be useful for undoing changes. For example, say a commit is 
+        accidentally made to the wrong branch. you can switch to the correct branch and cherry-pick the commit to where it should belong.
+
+Git Commands :
+
+git init  -------------> 	                          create local repository
+
+git status  ---------------->	                      tells you which files are added to  index and ready to commit
+
+git add . or mention file name --->                 This will add the specified file(s) into the Git repository, the staging 			area, where they are already being tracked by Git and now ready to be 			committed. (. means all files which are newly added or newly edited)
+
+git commit -m "message" --------->                  This command records or snapshots files permanently in the version history.
+
+git show [commit] -------->	                        This command shows the metadata and content changes of the specified commit.
+
+git tag [commitID] -------->	                      This command is used to give tags to the specified commit.
+
+git log    ------------------->	                    This command is used to list the version history for the current branch.
+
+git log --oneline  --------->	                      only shows commits in single line.
+
+git log –follow[file]------->	                      This command lists version history for a file, including the renaming of files 			also.
+
+git branch -------------->	                        This command lists all the local branches in the current repository.
+
+git branch [branch name]     ----->                 This command creates a new branch.
+
+git branch -d [branch name] ------>                 This command deletes the feature branch.
+
+git checkout [branch name] ------->                 This command is used to switch from one branch to another.
+
+git checkout -b [branch name] -------->             This command creates a new branch and also switch into it.
+
+git merge [branch name] --------->                  This command merges the specified branch’s history into the current branch. (nonlinier way...show logs as per modified file
+                                                    (time base) or as per did changes).
+
+git merge abort -------------->                     Helps in exiting the merge process and returning back to the state before the merging began.
+
+git rebase [branch name] ------->                   Merge changes in linear way, easy to track when which changes made.
+
+git reset [file] ------------>	                    This command unstage the file, but it preserves the file contents.
+
+git reset [commit]/ git reset --mixed [commit]      This command undoes all the commits after	the specified commit and preserves the changes locally(unstaged)
+
+git reset –soft [commit] ------------->	            This command Undo all the changes between HEAD and the commit, but save all the changes as staged.
+
+git reset –hard [commit] -------> 	                This command discards all history and goes back to the specified commit.
+
+git cherry-pick "commit id" ------>	                Merge the branch with specified commit id (When you accidentally do commit in wrong branch that time we just checkout into correct 
+                                                    Branch and do the cherry-pick ).
+
+git stash	--------------------------> 	            Uncommitted changes save at background.(Suppose you working	on some project and you have did some changes in code in particular 
+                                                    branch and you got another project which is very important and need to work on that immediately and you don’t want to commit this 
+                                                    running changes right now, that time you just stash your changes).
+
+git stash pop ------------------> 	                Right back uncommitted changes from background.
+
+git stash list ------------------->	                This command lists all stashed files.
+
+git stash drop ------------------>	                This command discards the most recently stashed change-set.
+
+git stash clear ------------------>	                Clear the uncommitted changes which are save at background.
+
+git config --global user.name "<your username>"     Set global username (Locally)
+
+git config --global user.email "<your email>"       Set global Email-ID (Locally)
+
+git remote add origin "repolink"   ------> 	        This command is used to connect your local repository to the remote server.
+
+git remote remove origin ------>	                  Remove remote origin URL.
+
+git fetch --------------->		                      Fetch all the remote branches.
+
+git remote -v ---------------->	                    shows you which origin is added.
+
+git pull origin "branch name from remote repo"      fetch all file from the branch of central repo into local repo / This command fetches and merges changes on	the remote server to 
+                                                    your working directory./ pull your remote changes to the local branch.
+
+git pull origin [branch name] --ff
+
+git push origin "branch name"  ----->              This command sends the committed changes of current branch to your remote repository./ push your local changes to the remote	branch.
+                                                   (you need Access Token key (follow the steps  -- GitHub Settings----> Developer settings-----> Personal access token))
+
+git push –all origin ------->	                     This command pushes all branches to your remote repository.
+
+git clone "url" -------------->	                     Create copy of remote repo into your local environment./ This will import the files of a project from the remote repository to our 
+                                                   local system.
+
+git remote set-url --add origin https://access_token@github.com/SuyogBhalekar/devops.git   ----------------------------->		For password-less push.
+
+git remote set-url --delete origin https://github.com/SuyogBhalekar/devops.git
+
+
