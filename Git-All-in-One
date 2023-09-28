@@ -3,6 +3,8 @@ Git & GitHub
 1.Difference between Git & GitHub.
 
 Git (Global Information Tracker):
+      . Git is a software.
+      . Git is used to maintain repositories.
       . Bydefault Master branch is created on Git (locally).
       . Git is version control system which allow your file to have version history.
       . Git is Distributed Version Control System (DVCS).
@@ -10,6 +12,8 @@ Git (Global Information Tracker):
         present in the main repository.
 
 GitHub :
+      . GitHub is a cloud service.
+      . GitHub is used to host Git repositories.
       . Bydefault Main branch is created on GitHub (Remote)
       . It is not locally available, We have always needed to be connected to a network to perform any action.
       . If the central server gets failed you will loss the entire data.
